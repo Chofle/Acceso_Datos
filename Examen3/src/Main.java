@@ -15,7 +15,7 @@ public class Main {
 		
 		 //Partido partido = FactoryServicios.getPartidoServicios().buscarPartidoPorId(1);
 		 //System.out.println(partido.toString());
-		
+		//prueba 
 		Teclado = new Scanner(System.in);
 		Menu();
 		
