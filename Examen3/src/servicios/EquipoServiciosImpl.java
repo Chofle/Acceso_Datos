@@ -56,5 +56,4 @@ public class EquipoServiciosImpl implements EquiposServicios {
 		
 	} 
 	
-	
 }
