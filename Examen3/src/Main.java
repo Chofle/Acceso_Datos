@@ -13,9 +13,10 @@ public class Main {
 		//Equipo equipo = FactoryServicios.getEquipoServicios().buscarEquipoPorId(1);
 		//System.out.println(equipo.toString());		
 		
-		 //Partido partido = FactoryServicios.getPartidoServicios().buscarPartidoPorId(1);
-		 //System.out.println(partido.toString());
-		//prueba 
+		//Partido partido = FactoryServicios.getPartidoServicios().buscarPartidoPorId(1);
+		//System.out.println(partido.toString());
+		
+		
 		Teclado = new Scanner(System.in);
 		Menu();
 		
@@ -65,8 +66,7 @@ public class Main {
 		localidad = Teclado.nextLine();
 		
 		Equipo equipo = new Equipo(nombre, localidad);
-		
-		FactoryServicios.getEquipoServicios().insertarEquipo(equipo);
+		FactoryServicios.getEquipoServicios().insertarNuevoEquipo(equipo);
 
 	}
 	

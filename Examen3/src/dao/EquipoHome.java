@@ -7,7 +7,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.LockMode;
 import org.hibernate.SessionFactory;
-
 import comun.dominio.Equipo;
 import comun.factorias.FactorySessionUtil2;
 
@@ -22,20 +21,22 @@ public class EquipoHome implements EquipoDao {
 
 	private static final Log log = LogFactory.getLog(EquipoHome.class);
 	
-	/* (non-Javadoc)
-	 * @see dao.EquipoDao#persist(comun.dominio.Cliente)
-	 */
-	@Override
-	public void persist(Equipo transientInstance) {
-		log.debug("persisting Equipo instance");
-		try {
-			FactorySessionUtil2.getSessionFactory().getCurrentSession().persist(transientInstance);
-			log.debug("persist successful");
-		} catch (RuntimeException re) {
-			log.error("persist failed", re);
-			throw re;
+	//Usar esto cuando lo tenga en autoincrementado, poniendo null el ID 
+		/* (non-Javadoc)
+		 * @see dao.EquipoDao#persist(comun.dominio.Equipo)
+		 */
+		@Override
+		public void persist(Equipo transientInstance) {
+			log.debug("persisting Equipo instance");
+			try {
+				FactorySessionUtil2.getSessionFactory().getCurrentSession().persist(transientInstance);
+				log.debug("persist successful");
+			} catch (RuntimeException re) {
+				log.error("persist failed", re);
+				throw re;
+			}
 		}
-	}
+	
 
 	/* (non-Javadoc)
 	 * @see dao.EquipoDao#attachDirty(comun.dominio.Cliente)

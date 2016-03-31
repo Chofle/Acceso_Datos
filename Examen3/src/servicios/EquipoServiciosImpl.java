@@ -3,7 +3,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-
 import comun.dominio.Equipo;
 import comun.factorias.FactoryDao;
 import comun.factorias.FactorySessionUtil2;
@@ -40,20 +39,20 @@ public class EquipoServiciosImpl implements EquiposServicios {
 	 * @see servicios.EquiposServicios#insertarEquipo(Equipo equipo)
 	 */
 	@Override
-	public void insertarEquipo(Equipo equipo){
+	public void insertarNuevoEquipo(Equipo equipo){
+		
 		Transaction tx = null;
 
 		try{
 			tx = FactorySessionUtil2.getSessionFactory().getCurrentSession().beginTransaction();	
-			FactoryDao.getEquipoDaoHibernate().persist(equipo);;
+			FactoryDao.getEquipoDaoHibernate().persist(equipo);
 			tx.commit();
-		}catch(RuntimeException re){
-			log.error("Fallo al realizar la transaccion", re);
+		}catch(RuntimeException ex){
+			log.error("Fallo al realizar la transaccion", ex);
 			if(tx != null)
 				tx.rollback();
-			throw re;
+			throw ex;
 		}
 		
 	} 
-	
 }
