@@ -1,4 +1,6 @@
 package servicios;
+import java.util.List;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Session;
@@ -55,4 +57,24 @@ public class EquipoServiciosImpl implements EquiposServicios {
 		}
 		
 	} 
+	
+	@Override
+	public List<Equipo> buscarEquipos(){
+		
+		List<Equipo> equipos = null;
+		Equipo equipo = new Equipo();
+		Transaction tx = null;
+		try{
+			tx = FactorySessionUtil2.getSessionFactory().getCurrentSession().beginTransaction();
+			equipos= FactoryDao.getEquipoDaoHibernate().findByExample(equipo);
+			tx.commit();
+			return equipos;
+		} catch (RuntimeException ex){
+			log.error("Fallo al ejecutar la transacción", ex);
+			if(tx!= null)
+				tx.rollback();
+			throw ex;
+		}
+	}
+	
 }

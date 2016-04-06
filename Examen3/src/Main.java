@@ -1,5 +1,5 @@
+import java.util.List;
 import java.util.Scanner;
-
 import comun.dominio.Equipo;
 import comun.dominio.Partido;
 import comun.factorias.FactoryServicios;
@@ -7,7 +7,7 @@ import comun.factorias.FactoryServicios;
 public class Main {
 	
 	static Scanner Teclado;
-	
+	static List<Equipo> equipos;
 	public static void main(String[] args) {
 		
 		//Equipo equipo = FactoryServicios.getEquipoServicios().buscarEquipoPorId(1);
@@ -31,7 +31,7 @@ public class Main {
 			System.out.println("2. Baja Equipo");
 			System.out.println("3. Editar Equipo");
 			System.out.println("4. Listado de Equipos");
-			System.out.println("0. Salir");
+			
 			OP = Integer.parseInt(Teclado.nextLine());
 
 			switch (OP) {
@@ -44,8 +44,8 @@ public class Main {
 			case 3:
 				break;
 			case 4:
+				listEquipos();
 				break;
-
 			default:
 				if (OP != 0)
 					System.out.println("Opción no válida.");
@@ -76,8 +76,17 @@ public class Main {
 		nombre = Teclado.nextLine();
 	}
 	
-	private static void list() {
-
+	private static void listEquipos() {
+		
+		equipos = FactoryServicios.getEquipoServicios().buscarEquipos();
+		
+		System.out.println("Equipos, Localidades");
+				
+		for (int i = 0; i < equipos.size(); i++) {
+			System.out.println(equipos.get(i).toString());
+		}
+		
+		System.out.println("\n\r");
 	}
 	
 }

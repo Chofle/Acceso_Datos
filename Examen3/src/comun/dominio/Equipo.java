@@ -47,8 +47,7 @@ public class Equipo implements java.io.Serializable {
 	 */
 	@Override
 	public String toString() {
-		return "Equipo [id=" + id + ", nombre="
-				+ nombre + ", localidad=" + localidad + "]";
+		return nombre + ", " + localidad;
 	}
 
 }
