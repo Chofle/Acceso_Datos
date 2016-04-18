@@ -1,5 +1,6 @@
 import java.util.List;
 import java.util.Scanner;
+
 import comun.dominio.Equipo;
 import comun.dominio.Partido;
 import comun.factorias.FactoryServicios;
@@ -57,7 +58,6 @@ public class Main {
 	}
 	
 	private static void add() {
-		
 		String nombre, localidad;
 		
 		System.out.println("Nombre: ");
@@ -71,9 +71,13 @@ public class Main {
 	}
 	
 	private static void delete() {
-		String nombre;
-		System.out.println("Nombre del equipo para borrar: ");
-		nombre = Teclado.nextLine();
+		int id;
+		System.out.println("Id del equipo para borrar: ");
+		id = Integer.parseInt(Teclado.nextLine());
+		
+		Equipo equipo = FactoryServicios.getEquipoServicios().buscarEquipoPorId(id);
+		FactoryServicios.getEquipoServicios().borrarEquipo(equipo);
+		
 	}
 	
 	private static void listEquipos() {

@@ -18,6 +18,6 @@ public interface EquipoDao {
 
 	Equipo findById(java.lang.Integer id);
 
-	List<Equipo> findByExample(Equipo instance);
+	List<Equipo> findByEquipo(Equipo instance);
 
 }

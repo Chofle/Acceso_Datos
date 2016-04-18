@@ -5,6 +5,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
 import comun.dominio.Equipo;
 import comun.factorias.FactoryDao;
 import comun.factorias.FactorySessionUtil2;
@@ -37,6 +38,20 @@ public class EquipoServiciosImpl implements EquiposServicios {
 	
 	} 
 	
+	@Override
+	public void borrarEquipo (Equipo equipo){
+		Transaction tx = null;
+		try{
+			tx = FactorySessionUtil2.getSessionFactory().getCurrentSession().beginTransaction();
+			FactoryDao.getEquipoDaoHibernate().delete(equipo);
+			tx.commit();
+		} catch (RuntimeException ex){
+			log.error("Fallo al ejecutar la transacción", ex);
+			if(tx!= null)
+				tx.rollback();
+			throw ex;
+		}
+	}
 	/* (non-Javadoc)
 	 * @see servicios.EquiposServicios#insertarEquipo(Equipo equipo)
 	 */
@@ -66,7 +81,7 @@ public class EquipoServiciosImpl implements EquiposServicios {
 		Transaction tx = null;
 		try{
 			tx = FactorySessionUtil2.getSessionFactory().getCurrentSession().beginTransaction();
-			equipos= FactoryDao.getEquipoDaoHibernate().findByExample(equipo);
+			equipos= FactoryDao.getEquipoDaoHibernate().findByEquipo(equipo);
 			tx.commit();
 			return equipos;
 		} catch (RuntimeException ex){

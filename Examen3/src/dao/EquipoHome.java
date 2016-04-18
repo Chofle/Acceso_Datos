@@ -123,7 +123,7 @@ public class EquipoHome implements EquipoDao {
 	 * @see dao.EquipoDao#findByExample(comun.dominio.Equipo)
 	 */
 	@Override
-	public List<Equipo> findByExample(Equipo instance) {
+	public List<Equipo> findByEquipo(Equipo instance) {
 		log.debug("finding Equipo instance by example");
 		try {
 			List<Equipo> results = (List<Equipo>) FactorySessionUtil2.getSessionFactory().getCurrentSession().createCriteria("comun.dominio.Equipo")
