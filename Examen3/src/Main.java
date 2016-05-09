@@ -67,6 +67,8 @@ public class Main {
 		
 		Equipo equipo = new Equipo(nombre, localidad);
 		FactoryServicios.getEquipoServicios().insertarNuevoEquipo(equipo);
+		
+		System.out.println("\n\r");
 
 	}
 	
@@ -75,8 +77,16 @@ public class Main {
 		System.out.println("Id del equipo para borrar: ");
 		id = Integer.parseInt(Teclado.nextLine());
 		
-		Equipo equipo = FactoryServicios.getEquipoServicios().buscarEquipoPorId(id);
-		FactoryServicios.getEquipoServicios().borrarEquipo(equipo);
+		System.out.println("¿Seguro que quieres borrar este equipo? S/N");
+		String confirmacion = Teclado.nextLine();
+		
+		if(confirmacion.equalsIgnoreCase("S")){
+		
+			Equipo equipo = FactoryServicios.getEquipoServicios().buscarEquipoPorId(id);
+			FactoryServicios.getEquipoServicios().borrarEquipo(equipo);
+			
+			System.out.println("\n\r");
+		}
 		
 	}
 	
@@ -84,10 +94,11 @@ public class Main {
 		
 		equipos = FactoryServicios.getEquipoServicios().buscarEquipos();
 		
-		System.out.println("Equipos, Localidades");
+		System.out.println("Id  --  Equipos  --  Localidades");
 				
 		for (int i = 0; i < equipos.size(); i++) {
 			System.out.println(equipos.get(i).toString());
+			System.out.println("----------------------------------");
 		}
 		
 		System.out.println("\n\r");
