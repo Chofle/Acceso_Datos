@@ -43,6 +43,7 @@ public class Main {
 				delete();
 				break;
 			case 3:
+				editar();
 				break;
 			case 4:
 				listEquipos();
@@ -68,8 +69,40 @@ public class Main {
 		Equipo equipo = new Equipo(nombre, localidad);
 		FactoryServicios.getEquipoServicios().insertarNuevoEquipo(equipo);
 		
-		System.out.println("\n\r");
+		System.out.println("");
 
+	}
+	
+	private static void editar(){
+		
+		System.out.println("Id del equipo que se quiere editar: ");
+		int id = Integer.parseInt(Teclado.nextLine());
+		
+		Equipo equipo = FactoryServicios.getEquipoServicios().buscarEquipoPorId(id);
+		
+		System.out.println("Nombre: " + equipo.getNombre());
+		
+		String nombre = Teclado.nextLine();
+		
+		if(!nombre.equals("")){
+			equipo.setNombre(nombre);
+		}
+				
+		System.out.println("Localidad: " + equipo.getLocalidad());
+		
+		String localidad = Teclado.nextLine();
+		
+		if(!localidad.equals("")){
+			equipo.setLocalidad(localidad);
+		}
+		
+		System.out.println("¿Seguro que quieres actualizar este equipo? S/N");
+		String confirmacion = Teclado.nextLine();
+		
+		if(confirmacion.equalsIgnoreCase("S")){
+		
+			FactoryServicios.getEquipoServicios().editarEquipo(equipo);
+		}
 	}
 	
 	private static void delete() {
@@ -85,7 +118,7 @@ public class Main {
 			Equipo equipo = FactoryServicios.getEquipoServicios().buscarEquipoPorId(id);
 			FactoryServicios.getEquipoServicios().borrarEquipo(equipo);
 			
-			System.out.println("\n\r");
+			System.out.println("");
 		}
 		
 	}
@@ -101,7 +134,7 @@ public class Main {
 			System.out.println("----------------------------------");
 		}
 		
-		System.out.println("\n\r");
+		System.out.println("");
 	}
 	
 }

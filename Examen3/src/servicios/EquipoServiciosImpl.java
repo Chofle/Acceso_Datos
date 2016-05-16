@@ -5,7 +5,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-
 import comun.dominio.Equipo;
 import comun.factorias.FactoryDao;
 import comun.factorias.FactorySessionUtil2;
@@ -91,5 +90,21 @@ public class EquipoServiciosImpl implements EquiposServicios {
 			throw ex;
 		}
 	}
+	
+	@Override
+	public void editarEquipo (Equipo e){
+		Transaction tx = null;
+		try{
+			tx = FactorySessionUtil2.getSessionFactory().getCurrentSession().beginTransaction();
+			FactoryDao.getEquipoDaoHibernate().attachDirty(e);;
+			tx.commit();
+		} catch (RuntimeException ex){
+			log.error("Fallo al ejecutar la transacción", ex);
+			if(tx!= null)
+				tx.rollback();
+			throw ex;
+		}
+	}
+	
 	
 }
