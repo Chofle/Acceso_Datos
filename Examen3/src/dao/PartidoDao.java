@@ -2,6 +2,7 @@ package dao;
 
 import java.util.List;
 
+import comun.dominio.Equipo;
 import comun.dominio.Partido;
 
 public interface PartidoDao {
@@ -18,6 +19,6 @@ public interface PartidoDao {
 
 	Partido findById(java.lang.Integer id);
 
-	List<Partido> findByExample(Partido instance);
+	List<Partido> findByPartido(Partido instance);
 
 }

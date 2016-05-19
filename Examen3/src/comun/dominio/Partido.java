@@ -119,9 +119,7 @@ public class Partido implements java.io.Serializable {
 	 */
 	@Override
 	public String toString() {
-		return "Partido [id=" + id + ", equipo_local=" + equipo_local + ", equipo_visitante=" + equipo_visitante
-				+ ", goles_local=" + goles_local + ", goles_visitante=" + goles_visitante + ", jornada=" + jornada
-				+ "]";
+		return  id + ".-   " +equipo_local + " -- " + equipo_visitante;
 	}
 	
 	

@@ -122,7 +122,7 @@ public class PartidoHome implements PartidoDao {
 	 * @see dao.PartidoDao#findByExample(comun.dominio.Partido)
 	 */
 	@Override
-	public List<Partido> findByExample(Partido instance) {
+	public List<Partido> findByPartido(Partido instance) {
 		log.debug("finding Producto instance by example");
 		try {
 			List<Partido> results = (List<Partido>) FactorySessionUtil2.getSessionFactory().getCurrentSession().createCriteria("comun.dominio.Partido")
