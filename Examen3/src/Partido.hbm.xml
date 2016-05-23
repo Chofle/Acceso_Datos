@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-feb-2016 11:05:53 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="comun.dominio">
+    <class name="Partido" table="partido" catalog="jguerrero">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="equipo_local" type="java.lang.Integer">
+            <column name="equipo_local" />
+        </property>
+        <property name="equipo_visitante" type="java.lang.Integer">
+            <column name="equipo_visitante" />
+        </property>
+        <property name="goles_local" type="java.lang.Integer">
+            <column name="goles_local" />
+        </property>
+        <property name="goles_visitante" type="java.lang.Integer">
+            <column name="goles_visitante" />
+        </property>
+        <property name="jornada" type="java.lang.Integer">
+            <column name="jornada" />
+        </property>
+    </class>
+</hibernate-mapping>
