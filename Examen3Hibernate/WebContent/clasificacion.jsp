@@ -27,7 +27,7 @@ if (listaEquipos!=null)
 	for(int i=0;i<listaEquipos.size();i++){
 		Equipo e=(Equipo) listaEquipos.get(i); %>
 		<tr> <td> <%=e.getNombre() %> </td>
-			 <td> <%=3%> </td>
+			 <td> <%=10%> </td>
 		</tr>
 <%	} %>
 
