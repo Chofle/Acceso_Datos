@@ -14,7 +14,7 @@ public class OperacionesBD {
 		Connection conexion = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conexion = DriverManager.getConnection("jdbc:mysql://localhost/jguerrero", "root", "");
+			conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/jguerrero", "root", "");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

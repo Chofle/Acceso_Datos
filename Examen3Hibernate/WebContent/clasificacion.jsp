@@ -22,12 +22,12 @@
 	<th>Puntos</th>
 </tr>
 <%
-ArrayList<Equipo> listaEquipos=(ArrayList<Equipo>) request.getAttribute("equipo");
+ArrayList<Equipo> listaEquipos=(ArrayList<Equipo>) request.getAttribute("equipos");
 if (listaEquipos!=null)
 	for(int i=0;i<listaEquipos.size();i++){
 		Equipo e=(Equipo) listaEquipos.get(i); %>
 		<tr> <td> <%=e.getNombre() %> </td>
-			 <td> <%=e.getLocalidad() %> </td>
+			 <td> <%=3%> </td>
 		</tr>
 <%	} %>
 
