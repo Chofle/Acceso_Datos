@@ -1,0 +1,13 @@
+12:16:56.3544 [main] INFO org.hibernate.Version - HHH000412: Hibernate Core {5.0.7.Final}
+12:16:56.3574 [main] INFO org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+12:16:56.3614 [main] INFO org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+12:16:56.4194 [main] WARN org.hibernate.orm.deprecation - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+12:16:56.9904 [main] INFO org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+12:16:57.0144 [main] WARN org.hibernate.orm.deprecation - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+12:16:59.8694 [main] WARN org.hibernate.orm.deprecation - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+12:17:00.2004 [main] WARN org.hibernate.orm.connections - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+12:17:00.2154 [main] INFO org.hibernate.orm.connections - HHH10001005: using driver [org.gjt.mm.mysql.Driver] at URL [jdbc:mysql://127.0.0.1:3306/jguerrero]
+12:17:00.2164 [main] INFO org.hibernate.orm.connections - HHH10001001: Connection properties: {user=root, password=****}
+12:17:00.2164 [main] INFO org.hibernate.orm.connections - HHH10001003: Autocommit mode: false
+12:17:00.2254 [main] INFO org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+12:17:00.9094 [main] INFO org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect

@@ -1,1 +1,0 @@
-java -Dorg.jboss.logging.provider=slf4j -jar examencito.jar 

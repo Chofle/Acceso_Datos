@@ -1,15 +1,20 @@
 import java.util.List;
 import java.util.Scanner;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import comun.dominio.Equipo;
 import comun.dominio.Partido;
 import comun.factorias.FactoryServicios;
+import dao.EquipoHome;
 
 public class Main {
 	
 	static Scanner Teclado;
 	static List<Equipo> equipos;
 	static List<Partido> partidos;
+	
 	public static void main(String[] args) {
 		
 		//Equipo equipo = FactoryServicios.getEquipoServicios().buscarEquipoPorId(1);
@@ -34,13 +39,15 @@ public class Main {
 			System.out.println("3. Editar Equipo");
 			System.out.println("4. Listado de Equipos");
 			System.out.println("5. Alta Partido");
-			System.out.println("6. Baja Equipo");
-			System.out.println("7. Editar Equipo");
-			System.out.println("8. Listado de Equipos");
-			
+			System.out.println("6. Baja Partido");
+			System.out.println("7. Editar Partido");
+			System.out.println("8. Listado de Partidos");
+			System.out.println("0. Salir");
 			OP = Integer.parseInt(Teclado.nextLine());
 
 			switch (OP) {
+			case 0:
+				System.exit(0);
 			case 1:
 				addEquipo();
 				break;
@@ -83,10 +90,15 @@ public class Main {
 		System.out.println("Localidad: ");
 		localidad = Teclado.nextLine();
 		
-		Equipo equipo = new Equipo(nombre, localidad);
-		FactoryServicios.getEquipoServicios().insertarNuevoEquipo(equipo);
+		if(!nombre.equals("") && !localidad.equals("")){
 		
+			Equipo equipo = new Equipo(nombre, localidad);
+			FactoryServicios.getEquipoServicios().insertarNuevoEquipo(equipo);
+			
+		}
+				
 		System.out.println("");
+		
 
 	}
 	
@@ -108,12 +120,18 @@ public class Main {
 		System.out.println("Jornada: ");
 		jornada = Integer.valueOf(Teclado.nextLine());
 		
-		Partido partido = new Partido(idEquipoLocal, idEquipoVisitante, golesLocal, golesVisitante, jornada);
+		if(idEquipoLocal == idEquipoVisitante){
+			
+			System.out.println("Un equipo no puede enfrentarse consigo mismo.");		
+			
+		}else{
 		
-		FactoryServicios.getPartidoServicios().insertarNuevoPartido(partido);
+			Partido partido = new Partido(idEquipoLocal, idEquipoVisitante, golesLocal, golesVisitante, jornada);
+			
+			FactoryServicios.getPartidoServicios().insertarNuevoPartido(partido);
 		
+		}
 		System.out.println("");
-
 	}
 	
 	private static void editarEquipo(){
@@ -269,5 +287,10 @@ public class Main {
 		
 		System.out.println("");
 	}
+	
+	/*private String nombreEquipoPorId(int id){
+		Equipo equipo = FactoryServicios.getEquipoServicios().buscarEquipoPorId(1);	
+		return equipo.getNombre();
+	}*/
 	
 }
